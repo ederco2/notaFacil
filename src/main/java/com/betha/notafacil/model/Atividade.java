@@ -5,7 +5,7 @@ import com.betha.notafacil.enterprise.AbstractEntity;
 public class Atividade  extends AbstractEntity {
     private String descricao;
     private ListaServicos listaServicos;
-    private Double Aliquota;
+    private Double Aliquota;//teste
 
     public String getDescricao() {
         return descricao;
