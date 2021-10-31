@@ -1,7 +1,14 @@
 package com.betha.notafacil.enterprise;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class AbstractRegion extends AbstractEntity{
+    @Column(name="NOME")
     private String name;
+
+    @Column(name="POPULACAO")
     private String populacao;
 
     public String getName() {

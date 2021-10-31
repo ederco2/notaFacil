@@ -6,7 +6,6 @@ public class Atividade  extends AbstractEntity {
     private String descricao;
     private ListaServicos listaServicos;
 
-
     public String getDescricao() {
         return descricao;
     }

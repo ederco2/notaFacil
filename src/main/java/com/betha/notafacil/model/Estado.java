@@ -2,7 +2,12 @@ package com.betha.notafacil.model;
 
 import com.betha.notafacil.enterprise.AbstractRegion;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class Estado extends AbstractRegion {
+    @Column(name="uf")
     private String uf;
 
     public String getUf() {
@@ -12,4 +17,5 @@ public class Estado extends AbstractRegion {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
 }
