@@ -7,13 +7,13 @@ public class Empresa extends AbstractEntity {
     private String nomeEmpresa;
     private String razaoSocial;
     private String cnpj;
-    private Integer porteEmpresa; // lista de selecao
-    private String optante; //sim ou nao
-    private Bairro bairro;
+    private Integer porteEmpresa; // ENUM
+    private String optante; //ENUM
+    private Bairro bairro; //Classe
     private String CEP;
-    private Responsavel responsavel;
-    private String situacao; //ultima situacao: (B,S,C,P,A) // Baixado, Suspenso, Cancelado, Provisorio, A- Em Atividade
-    private Atividade atividade;
+    private Responsavel responsavel; //Classe
+    private String situacao; // ENUM ultima situacao: (B,S,C,P,A) // Baixado, Suspenso, Cancelado, Provisorio, A- Em Atividade
+    private Atividade atividade; //Classe
 
     public String getNomeEmpresa() {
         return nomeEmpresa;

@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 public class EstadoController {
     @Autowired
     private EstadoRepository repository;
+
     @GetMapping
     public List<EstadoDTO> getEstados(){
         return repository.findAll().stream().map(e-> EstadoDTO.toDTO(e)).collect(Collectors.toList());
@@ -25,6 +26,7 @@ public class EstadoController {
                 .orElseThrow(()-> new EntityNotFoundException("Estado não encontrado com o ID::"+estadoId));
         return EstadoDTO.toDTO(estadoFind);
     }
+
     @PostMapping
     public EstadoDTO  create(@RequestBody Estado estado){
         return EstadoDTO.toDTO(repository.save(estado));
@@ -49,5 +51,6 @@ public class EstadoController {
         repository.delete(estadoFind);
         return ResponseEntity.noContent().build();
     }
+
 
 }

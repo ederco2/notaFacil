@@ -2,9 +2,18 @@ package com.betha.notafacil.model;
 
 import com.betha.notafacil.enterprise.AbstractEntity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
 public class ListaServicos extends AbstractEntity {
+    @Column(name = "descricao")
     private String descricao;
-    private Double aliquota;
+    @Column(name = "iss_variavel")
+    private Double issVariavel;
+    @Column(name = "iss_fixo")
+    private Double issFixo; // anual
+    @Column(name = "item")
     private String item; // 1.01 ou 1.02
 
     public String getDescricao() {
@@ -15,12 +24,20 @@ public class ListaServicos extends AbstractEntity {
         this.descricao = descricao;
     }
 
-    public Double getAliquota() {
-        return aliquota;
+    public Double getIssVariavel() {
+        return issVariavel;
     }
 
-    public void setAliquota(Double aliquota) {
-        this.aliquota = aliquota;
+    public void setIssVariavel(Double issVariavel) {
+        this.issVariavel = issVariavel;
+    }
+
+    public Double getIssFixo() {
+        return issFixo;
+    }
+
+    public void setIssFixo(Double issFixo) {
+        this.issFixo = issFixo;
     }
 
     public String getItem() {
