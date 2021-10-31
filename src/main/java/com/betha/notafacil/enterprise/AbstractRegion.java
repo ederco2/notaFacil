@@ -6,17 +6,17 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class AbstractRegion extends AbstractEntity{
     @Column(name="NOME")
-    private String name;
+    private String nome;
 
     @Column(name="POPULACAO")
     private String populacao;
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getPopulacao() {
@@ -30,7 +30,7 @@ public class AbstractRegion extends AbstractEntity{
     @Override
     public String toString() {
         return "AbstractRegion{" +
-                "name='" + name + '\'' +
+                "nome='" + nome + '\'' +
                 ", populacao='" + populacao + '\'' +
                 '}';
     }
