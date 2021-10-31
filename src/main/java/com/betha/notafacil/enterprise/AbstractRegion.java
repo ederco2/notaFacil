@@ -2,9 +2,11 @@ package com.betha.notafacil.enterprise;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public class AbstractRegion extends AbstractEntity{
+    @NotNull(message = "O Nome não pode ser nulo!")
     @Column(name="NOME")
     private String nome;
 
