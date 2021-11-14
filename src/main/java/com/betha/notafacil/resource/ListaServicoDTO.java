@@ -5,6 +5,7 @@ import com.betha.notafacil.model.ListaServicos;
 
 public class ListaServicoDTO {
     private Long id;
+    private Integer codigo;
     private String descricao;
     private Double issVariavel;
     private Double issFixo; // anual
@@ -50,9 +51,18 @@ public class ListaServicoDTO {
         this.item = item;
     }
 
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
     public static ListaServicoDTO toDTO(ListaServicos listaServicos){
         ListaServicoDTO dto =  new ListaServicoDTO();
         dto.setId(listaServicos.getId());
+        dto.setCodigo(listaServicos.getCodigo());
         dto.setDescricao(listaServicos.getDescricao());
         dto.setIssFixo(listaServicos.getIssFixo());
         dto.setIssVariavel(listaServicos.getIssVariavel());
@@ -63,6 +73,7 @@ public class ListaServicoDTO {
     public static ListaServicos fromDTO(ListaServicoDTO dto){
         ListaServicos entity = new ListaServicos();
         entity.setId(dto.getId());
+        entity.setCodigo(dto.getCodigo());
         entity.setDescricao(dto.descricao);
         entity.setIssFixo(dto.getIssFixo());
         entity.setIssVariavel(dto.getIssVariavel());

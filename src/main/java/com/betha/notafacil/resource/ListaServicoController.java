@@ -40,6 +40,7 @@ public class ListaServicoController {
         ListaServicos listaServicoFind = repository.findById(listaServicoId)
                 .orElseThrow(()-> new EntityNotFoundException("Lista de Servico nao encontrado com ID::"+listaServicoId));
         listaServicoFind.setId(listaServicos.getId());
+        listaServicoFind.setCodigo(listaServicoFind.getCodigo());
         listaServicoFind.setDescricao(listaServicos.getDescricao());
         listaServicoFind.setIssFixo(listaServicos.getIssFixo());
         listaServicoFind.setIssVariavel(listaServicos.getIssVariavel());
