@@ -1,10 +1,9 @@
 package com.betha.notafacil.repository;
 
-import com.betha.notafacil.model.Bairro;
+import com.betha.notafacil.model.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BairroRepository extends JpaRepository<Bairro, Long> {
-
+public interface EmpresaRepository extends JpaRepository<Empresa,Long> {
 }

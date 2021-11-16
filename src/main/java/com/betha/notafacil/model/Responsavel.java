@@ -2,11 +2,25 @@ package com.betha.notafacil.model;
 
 import com.betha.notafacil.enterprise.AbstractEntity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Responsavel extends AbstractEntity {
+    @Column(name="nome")
     private String nome;
+    @Column(name="cep")
     private String cpf;
+    @Column(name="celular")
     private String celular;
+    @Column(name="telefe")
     private String telefone;
+
+    @ManyToOne
+    @JoinColumn(name="i_bairros",referencedColumnName = "ID")
     private Bairro bairro;
 
     public String getNome() {
@@ -48,4 +62,5 @@ public class Responsavel extends AbstractEntity {
     public void setBairro(Bairro bairro) {
         this.bairro = bairro;
     }
+
 }

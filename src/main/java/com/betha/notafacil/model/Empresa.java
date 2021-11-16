@@ -2,18 +2,38 @@ package com.betha.notafacil.model;
 
 import com.betha.notafacil.enterprise.AbstractEntity;
 
-public class Empresa extends AbstractEntity {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
+@Entity
+public class Empresa extends AbstractEntity {
+    @Column(name="nomeEmpresa")
     private String nomeEmpresa;
+    @Column(name="razaoSocial")
     private String razaoSocial;
+    @Column(name="cnpj")
     private String cnpj;
+    @Column(name="porteEmpresa")
     private Integer porteEmpresa; // ENUM
+    @Column(name="optante")
     private String optante; //ENUM
-    private Bairro bairro; //Classe
+    @Column(name="CEP")
     private String CEP;
-    private Responsavel responsavel; //Classe
+    @Column(name="situacao")
     private String situacao; // ENUM ultima situacao: (B,S,C,P,A) // Baixado, Suspenso, Cancelado, Provisorio, A- Em Atividade
-    private Atividade atividade; //Classe
+
+    @ManyToOne
+    @JoinColumn(name="i_bairros",referencedColumnName = "ID")
+    private Bairro bairro; //Classe
+    @ManyToOne
+    @JoinColumn(name="i_responsaveis",referencedColumnName = "ID")
+    private Responsavel responsavel; //Classe
+    @ManyToOne
+    @JoinColumn(name="i_atividades",referencedColumnName = "ID")
+    private Atividade atividade;
+
 
     public String getNomeEmpresa() {
         return nomeEmpresa;
@@ -71,20 +91,20 @@ public class Empresa extends AbstractEntity {
         this.CEP = CEP;
     }
 
-    public Responsavel getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(Responsavel responsavel) {
-        this.responsavel = responsavel;
-    }
-
     public String getSituacao() {
         return situacao;
     }
 
     public void setSituacao(String situacao) {
         this.situacao = situacao;
+    }
+
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
     }
 
     public Atividade getAtividade() {
