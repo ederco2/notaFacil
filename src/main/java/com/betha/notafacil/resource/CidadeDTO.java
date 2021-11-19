@@ -6,6 +6,7 @@ public class CidadeDTO {
     private Long id;
     private String nome;
     private String populacao;
+    private EstadoDTO estado;
 
     public String getNome() {
         return nome;
@@ -31,12 +32,20 @@ public class CidadeDTO {
         this.id = id;
     }
 
+    public EstadoDTO getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoDTO estado) {
+        this.estado = estado;
+    }
 
     public static CidadeDTO toDTO(Cidade cidade) {
         CidadeDTO dto = new CidadeDTO();
         dto.setId(cidade.getId());
         dto.setNome(cidade.getNome());
         dto.setPopulacao(cidade.getPopulacao());
+        dto.setEstado(cidade.getEstado() != null ? EstadoDTO.toDTO(cidade.getEstado()) : null);
 
         return dto;
     }
