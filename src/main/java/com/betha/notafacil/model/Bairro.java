@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Bairro extends AbstractRegion {
-    @NotNull(message = "Cidade nao pode ser nulo!")
+    @NotNull(message = "Bairro nao pode ser nulo!")
     @ManyToOne
     @JoinColumn(name="i_cidades",referencedColumnName = "ID")
     private Cidade cidade;
