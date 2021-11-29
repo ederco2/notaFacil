@@ -2,10 +2,12 @@ package com.betha.notafacil.model;
 
 import com.betha.notafacil.enterprise.AbstractEntity;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Rua  extends AbstractEntity {
 
     private String cep;
