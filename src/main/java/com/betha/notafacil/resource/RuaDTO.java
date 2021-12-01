@@ -57,6 +57,7 @@ public class RuaDTO {
         dto.setId(rua.getId());
         dto.setNome(rua.getNome());
         dto.setCep(rua.getCep());
+        dto.setTipo(rua.getTipo());
         dto.setBairro(rua.getBairro() != null ? BairroDTO.toDTO(rua.getBairro()) : null);
         return dto;
     }

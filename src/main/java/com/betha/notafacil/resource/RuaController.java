@@ -51,7 +51,8 @@ public class RuaController extends AbstractResource{
         ruaFind.setId(rua.getId());
         ruaFind.setNome(rua.getNome());
         ruaFind.setCep(rua.getCep());
-
+        ruaFind.setTipo(rua.getTipo());
+        ruaFind.setBairro(rua.getBairro());
         return repository.save(ruaFind);
     }
 

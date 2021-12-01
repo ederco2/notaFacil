@@ -41,6 +41,7 @@ public class EstadoController {
         estadoFind.setNome(estado.getNome());
         estadoFind.setUf(estado.getUf());
         estadoFind.setPopulacao(estado.getPopulacao());
+        estadoFind.setPais(estado.getPais());
         return repository.save(estadoFind);
     }
 

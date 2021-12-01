@@ -46,7 +46,6 @@ public class CidadeDTO {
         dto.setNome(cidade.getNome());
         dto.setPopulacao(cidade.getPopulacao());
         dto.setEstado(cidade.getEstado() != null ? EstadoDTO.toDTO(cidade.getEstado()) : null);
-
         return dto;
     }
 

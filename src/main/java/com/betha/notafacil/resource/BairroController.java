@@ -48,6 +48,8 @@ public class BairroController {
                 .orElseThrow(() -> new EntityNotFoundException("Estado não encontrado com ID :: " + bairroId));
         bairroFind.setId(bairro.getId());
         bairroFind.setNome(bairro.getNome());
+        bairroFind.setPopulacao(bairro.getPopulacao());
+        bairroFind.setCidade(bairro.getCidade());
         return BairroDTO.toDTO(repository.save(bairroFind));
     }
 

@@ -3,16 +3,18 @@ package com.betha.notafacil.resource;
 import com.betha.notafacil.model.Estado;
 
 public class EstadoDTO {
-    private Long id;
+    private String id;
     private String nome;
     private String populacao;
     private String uf;
 
-    public Long getId() {
+    private PaisDTO pais;
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -40,21 +42,31 @@ public class EstadoDTO {
         this.uf = uf;
     }
 
+    public PaisDTO getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisDTO pais) {
+        this.pais = pais;
+    }
+
     public static EstadoDTO toDTO(Estado estado){
         EstadoDTO dto =  new EstadoDTO();
-        dto.setId(estado.getId());
+        dto.setId(estado.getId().toString());
         dto.setNome(estado.getNome());
         dto.setPopulacao(estado.getPopulacao());
         dto.setUf(estado.getUf());
+        dto.setPais(estado.getPais() != null ? PaisDTO.toDTO(estado.getPais()) : null);
         return dto;
     }
 
     public static Estado fromDTO(EstadoDTO dto){
         Estado entity = new Estado();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setNome(dto.nome);
         entity.setPopulacao(dto.getPopulacao());
         entity.setUf(dto.getUf());
+        //entity.setPais(dto.getPais());
         return entity;
     }
 }
