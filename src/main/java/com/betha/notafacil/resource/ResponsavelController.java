@@ -1,7 +1,6 @@
 package com.betha.notafacil.resource;
 
 import com.betha.notafacil.enterprise.EntityNotFoundException;
-import com.betha.notafacil.model.ListaServicos;
 import com.betha.notafacil.model.Responsavel;
 import com.betha.notafacil.repository.ResponsavelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class ResponsavelController {
         Responsavel responsavelFind = repository.findById(responsavelId)
                 .orElseThrow(()-> new EntityNotFoundException("Responsavel não encontrado com ID::"+responsavelId));
         responsavelFind.setId(responsavel.getId());
-        responsavelFind.setBairro(responsavel.getBairro());
+        responsavelFind.setRua(responsavel.getRua());
         responsavelFind.setCelular(responsavel.getCelular());
         responsavelFind.setCpf(responsavel.getCpf());
         responsavelFind.setNome(responsavel.getNome());

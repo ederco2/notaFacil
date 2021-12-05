@@ -3,16 +3,22 @@ package com.betha.notafacil.resource;
 import com.betha.notafacil.enterprise.EntityNotFoundException;
 import com.betha.notafacil.model.Empresa;
 import com.betha.notafacil.repository.EmpresaRepository;
+import com.querydsl.core.types.Predicate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("api/empresas")
 public class EmpresaController extends AbstractResource {
+
+    @Autowired
     private EmpresaRepository repository;
 
     @GetMapping
@@ -20,7 +26,15 @@ public class EmpresaController extends AbstractResource {
         return repository.findAll().stream().map(p -> EmpresaDTO.toDTO(p)).collect(Collectors.toList());
     }
 
-
+/*
+    @GetMapping
+    public List<EmpresaDTO> getEmpresas(@QuerydslPredicate(root = Empresa.class) Predicate predicate) {
+        List<EmpresaDTO> result = new ArrayList<>();
+        Iterable<Empresa> all = repository.findAll(predicate);
+        all.forEach(f -> result.add(EmpresaDTO.toDTO(f)));
+        return result;
+    }
+*/
     @GetMapping("/{id}")
     public EmpresaDTO getEmpresasId(@PathVariable(value = "id") Long empresaId) throws EntityNotFoundException {
 
@@ -51,7 +65,7 @@ public class EmpresaController extends AbstractResource {
         empresaFind.setNomeEmpresa(empresa.getNomeEmpresa());
         empresaFind.setCnpj(empresa.getCnpj());
         empresaFind.setCEP(empresa.getCEP());
-        empresaFind.setBairro(empresa.getBairro());
+        empresaFind.setRua(empresa.getRua());
         empresaFind.setAtividade(empresa.getAtividade());
         return repository.save(empresaFind);
     }

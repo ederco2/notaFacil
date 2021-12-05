@@ -1,9 +1,6 @@
 package com.betha.notafacil.resource;
 
-import com.betha.notafacil.model.Atividade;
-import com.betha.notafacil.model.Bairro;
 import com.betha.notafacil.model.Empresa;
-import com.betha.notafacil.model.Responsavel;
 
 public class EmpresaDTO {
     private Long id;
@@ -12,11 +9,11 @@ public class EmpresaDTO {
     private String cnpj;
     private Integer porteEmpresa; // ENUM
     private String optante; //ENUM
-    private Bairro bairro; //Classe
+    private RuaDTO rua; //Classe
     private String CEP;
-    private Responsavel responsavel; //Classe
+    private ResponsavelDTO responsavel; //Classe
     private String situacao; // ENUM ultima situacao: (B,S,C,P,A) // Baixado, Suspenso, Cancelado, Provisorio, A- Em Atividade
-    private Atividade atividade; //Classe
+    private AtividadeDTO atividade; //Classe
 
     public String getNomeEmpresa() {
         return nomeEmpresa;
@@ -58,12 +55,12 @@ public class EmpresaDTO {
         this.optante = optante;
     }
 
-    public Bairro getBairro() {
-        return bairro;
+    public RuaDTO getRua() {
+        return rua;
     }
 
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
+    public void setRua(RuaDTO rua) {
+        this.rua = rua;
     }
 
     public String getCEP() {
@@ -74,11 +71,11 @@ public class EmpresaDTO {
         this.CEP = CEP;
     }
 
-    public Responsavel getResponsavel() {
+    public ResponsavelDTO getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(Responsavel responsavel) {
+    public void setResponsavel(ResponsavelDTO responsavel) {
         this.responsavel = responsavel;
     }
 
@@ -90,11 +87,11 @@ public class EmpresaDTO {
         this.situacao = situacao;
     }
 
-    public Atividade getAtividade() {
+    public AtividadeDTO getAtividade() {
         return atividade;
     }
 
-    public void setAtividade(Atividade atividade) {
+    public void setAtividade(AtividadeDTO atividade) {
         this.atividade = atividade;
     }
 
@@ -105,34 +102,37 @@ public class EmpresaDTO {
     public void setId(Long id) {
         this.id = id;
     }
-    public static EmpresaDTO toDTO(Empresa Empresa) {
+    public static EmpresaDTO toDTO(Empresa empresa) {
         EmpresaDTO dto = new EmpresaDTO();
-        dto.setId(Empresa.getId());
-        dto.setAtividade(Empresa.getAtividade());
-        dto.setBairro(Empresa.getBairro());
-        dto.setCEP(Empresa.getCEP());
-        dto.setCnpj(Empresa.getCnpj());
-        dto.setNomeEmpresa(Empresa.getNomeEmpresa());
-        dto.setOptante(Empresa.getOptante());
-        dto.setPorteEmpresa(Empresa.getPorteEmpresa());
-        dto.setRazaoSocial(Empresa.getRazaoSocial());
-        dto.setResponsavel(Empresa.getResponsavel());
-        dto.setSituacao(Empresa.getSituacao());
+        dto.setId(empresa.getId());
+        dto.setCEP(empresa.getCEP());
+        dto.setCnpj(empresa.getCnpj());
+        dto.setNomeEmpresa(empresa.getNomeEmpresa());
+        dto.setOptante(empresa.getOptante());
+        dto.setPorteEmpresa(empresa.getPorteEmpresa());
+        dto.setRazaoSocial(empresa.getRazaoSocial());
+        dto.setSituacao(empresa.getSituacao());
+        dto.setRua(RuaDTO.toDTO(empresa.getRua()));
+        dto.setResponsavel(ResponsavelDTO.toDTO(empresa.getResponsavel()));
+
+        dto.setAtividade(AtividadeDTO.toDTO(empresa.getAtividade()));
+
         return  dto;
     }
-    public static Empresa toDTO(EmpresaDTO dto) {
+    public static Empresa fromDTO(EmpresaDTO dto) {
         Empresa entity = new Empresa();
         entity.setId(dto.getId());
-        entity.setAtividade(dto.getAtividade());
-        entity.setBairro(dto.getBairro());
+        entity.setSituacao(dto.getSituacao());
+        entity.setRazaoSocial(dto.getRazaoSocial());
         entity.setCEP(dto.getCEP());
         entity.setCnpj(dto.getCnpj());
         entity.setNomeEmpresa(dto.getNomeEmpresa());
         entity.setOptante(dto.getOptante());
         entity.setPorteEmpresa(dto.getPorteEmpresa());
-        entity.setRazaoSocial(dto.getRazaoSocial());
-        entity.setResponsavel(dto.getResponsavel());
-        entity.setSituacao(dto.getSituacao());
+        entity.setRua(RuaDTO.fromDTO(dto.getRua()));
+        entity.setAtividade(AtividadeDTO.fromDTO(dto.getAtividade()));
+        entity.setResponsavel(ResponsavelDTO.fromDTO(dto.getResponsavel()));
+
         return  entity;
     }
 }

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Responsavel extends AbstractEntity {
     @Column(name="nome")
     private String nome;
-    @Column(name="cep")
+    @Column(name="cpf")
     private String cpf;
     @Column(name="celular")
     private String celular;
@@ -20,8 +20,8 @@ public class Responsavel extends AbstractEntity {
     private String telefone;
 
     @ManyToOne
-    @JoinColumn(name="i_bairros",referencedColumnName = "ID")
-    private Bairro bairro;
+    @JoinColumn(name="i_ruas",referencedColumnName = "ID")
+    private Rua rua;
 
     public String getNome() {
         return nome;
@@ -55,12 +55,11 @@ public class Responsavel extends AbstractEntity {
         this.telefone = telefone;
     }
 
-    public Bairro getBairro() {
-        return bairro;
+    public Rua getRua() {
+        return rua;
     }
 
-    public void setBairro(Bairro bairro) {
-        this.bairro = bairro;
+    public void setRua(Rua rua) {
+        this.rua = rua;
     }
-
 }

@@ -1,7 +1,6 @@
 package com.betha.notafacil.resource;
 
 import com.betha.notafacil.model.Atividade;
-import com.betha.notafacil.model.Cidade;
 
 public class AtividadeDTO {
     private Long id;
