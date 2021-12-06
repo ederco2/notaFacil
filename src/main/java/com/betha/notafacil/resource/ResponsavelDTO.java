@@ -10,7 +10,7 @@ public class ResponsavelDTO {
     private String cpf;
     private String celular;
     private String telefone;
-    private Rua rua;
+    private RuaDTO rua;
 
     public String getNome() {
         return nome;
@@ -44,11 +44,11 @@ public class ResponsavelDTO {
         this.telefone = telefone;
     }
 
-    public Rua getRua() {
+    public RuaDTO getRua() {
         return rua;
     }
 
-    public void setRua(Rua rua) {
+    public void setRua(RuaDTO rua) {
         this.rua = rua;
     }
 
@@ -63,7 +63,7 @@ public class ResponsavelDTO {
     public static ResponsavelDTO toDTO(Responsavel responsavel){
         ResponsavelDTO dto =  new ResponsavelDTO();
         dto.setId(responsavel.getId());
-        dto.setRua(responsavel.getRua());
+        dto.setRua(RuaDTO.toDTO(responsavel.getRua()));
         dto.setCelular(responsavel.getCelular());
         dto.setCpf(responsavel.getCpf());
         dto.setNome(responsavel.getNome());
@@ -74,7 +74,7 @@ public class ResponsavelDTO {
     public static Responsavel fromDTO(ResponsavelDTO dto){
         Responsavel entity = new Responsavel();
         entity.setId(dto.getId());
-        entity.setRua(dto.getRua());
+        entity.setRua(RuaDTO.fromDTO(dto.getRua()));
         entity.setCelular(dto.getCelular());
         entity.setCpf(dto.getCpf());
         entity.setNome(dto.getNome());

@@ -114,9 +114,7 @@ public class EmpresaDTO {
         dto.setSituacao(empresa.getSituacao());
         dto.setRua(RuaDTO.toDTO(empresa.getRua()));
         dto.setResponsavel(ResponsavelDTO.toDTO(empresa.getResponsavel()));
-
         dto.setAtividade(AtividadeDTO.toDTO(empresa.getAtividade()));
-
         return  dto;
     }
     public static Empresa fromDTO(EmpresaDTO dto) {

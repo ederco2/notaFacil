@@ -16,7 +16,7 @@ public class Responsavel extends AbstractEntity {
     private String cpf;
     @Column(name="celular")
     private String celular;
-    @Column(name="telefe")
+    @Column(name="telefone")
     private String telefone;
 
     @ManyToOne
