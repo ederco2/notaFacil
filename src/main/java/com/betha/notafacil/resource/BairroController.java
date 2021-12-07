@@ -29,7 +29,7 @@ public class BairroController {
     public BairroDTO getBairrosId(@PathVariable(value = "id") Long bairroId) throws EntityNotFoundException {
 
         Bairro bairroFind = repository.findById(bairroId)
-                .orElseThrow(() -> new EntityNotFoundException("Estado não encontrado com ID :: " + bairroId));
+                .orElseThrow(() -> new EntityNotFoundException("Bairro não encontrado com ID :: " + bairroId));
 
         return BairroDTO.toDTO(bairroFind);
     }
@@ -57,7 +57,7 @@ public class BairroController {
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable(value = "id") Long bairroId) throws EntityNotFoundException {
         Bairro bairroFind = repository.findById(bairroId)
-                .orElseThrow(() -> new EntityNotFoundException("Estado não encontrado com ID :: " + bairroId));
+                .orElseThrow(() -> new EntityNotFoundException("Bairro não encontrado com ID :: " + bairroId));
 
         repository.delete(bairroFind);
 

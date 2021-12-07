@@ -63,7 +63,7 @@ public class EstadoDTO {
     public static Estado fromDTO(EstadoDTO dto){
         Estado entity = new Estado();
         entity.setId(Long.getLong(dto.getId()));
-        entity.setNome(dto.nome);
+        entity.setNome(dto.getNome());
         entity.setPopulacao(dto.getPopulacao());
         entity.setUf(dto.getUf());
         //entity.setPais(dto.getPais());

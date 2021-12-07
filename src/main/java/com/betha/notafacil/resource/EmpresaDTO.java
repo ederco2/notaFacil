@@ -102,6 +102,7 @@ public class EmpresaDTO {
     public void setId(Long id) {
         this.id = id;
     }
+
     public static EmpresaDTO toDTO(Empresa empresa) {
         EmpresaDTO dto = new EmpresaDTO();
         dto.setId(empresa.getId());
