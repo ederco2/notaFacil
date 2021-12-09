@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -17,7 +18,7 @@ public class Contribuinte extends AbstractEntity {
     @NotNull
     private TipoDocumento tipodoc;
     @NotNull
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
     @NotNull
     @ManyToOne
     @JoinColumn(name="i_ruas",referencedColumnName = "ID")
@@ -47,11 +48,11 @@ public class Contribuinte extends AbstractEntity {
         this.tipodoc = tipodoc;
     }
 
-    public Date getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

@@ -18,15 +18,15 @@ public class ListaServicoController {
     private ListaServicoRepository repository;
 
     @GetMapping
-    public List<ListaServicoDTO> getListaServico(){
+    public List<ListaServicoDTO> getListaServicos(){
         return repository.findAll().stream().map(l-> ListaServicoDTO.toDTO(l)).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public ListaServicoDTO getListaServicoId(@PathVariable(value = "id") Long listaServicoId) throws EntityNotFoundException {
-        ListaServicos listaServicoFind = repository.findById(listaServicoId)
-                .orElseThrow(()-> new EntityNotFoundException("Lista de Servico não encontrado com o ID::"+listaServicoId));
-        return ListaServicoDTO.toDTO(listaServicoFind);
+    public ListaServicoDTO getListaServicosId(@PathVariable(value = "id") Long listaServicosId) throws EntityNotFoundException {
+        ListaServicos listaServicosFind = repository.findById(listaServicosId)
+                .orElseThrow(()-> new EntityNotFoundException("Lista de Servico não encontrado com o ID::"+listaServicosId));
+        return ListaServicoDTO.toDTO(listaServicosFind);
     }
 
     @PostMapping

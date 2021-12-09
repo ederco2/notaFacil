@@ -3,7 +3,7 @@ package com.betha.notafacil.resource;
 import com.betha.notafacil.model.Empresa;
 
 public class EmpresaDTO {
-    private Long id;
+    private String id;
     private String nomeEmpresa;
     private String razaoSocial;
     private String cnpj;
@@ -95,17 +95,18 @@ public class EmpresaDTO {
         this.atividade = atividade;
     }
 
-    public Long getId() {
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
     public static EmpresaDTO toDTO(Empresa empresa) {
         EmpresaDTO dto = new EmpresaDTO();
-        dto.setId(empresa.getId());
+        dto.setId(empresa.getId().toString());
         dto.setCEP(empresa.getCEP());
         dto.setCnpj(empresa.getCnpj());
         dto.setNomeEmpresa(empresa.getNomeEmpresa());
@@ -120,7 +121,7 @@ public class EmpresaDTO {
     }
     public static Empresa fromDTO(EmpresaDTO dto) {
         Empresa entity = new Empresa();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setSituacao(dto.getSituacao());
         entity.setRazaoSocial(dto.getRazaoSocial());
         entity.setCEP(dto.getCEP());

@@ -15,7 +15,7 @@ public class EmissaoNotasDTO {
     private Double valorServico;
     private ContribuinteDTO contribuinte;
     private EmpresaDTO empresa;
-    private ListaServicoDTO listaServico;
+    private ListaServicoDTO listaServicos;
 
     public String getId() {
         return id;
@@ -82,11 +82,11 @@ public class EmissaoNotasDTO {
     }
 
     public ListaServicoDTO getListaServico() {
-        return listaServico;
+        return listaServicos;
     }
 
-    public void setListaServico(ListaServicoDTO listaServico) {
-        this.listaServico = listaServico;
+    public void setListaServico(ListaServicoDTO listaServicos) {
+        this.listaServicos = listaServicos;
     }
 
     public static EmissaoNotasDTO toDTO(EmissaoNotas emissaoNotas){

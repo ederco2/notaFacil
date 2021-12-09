@@ -4,18 +4,18 @@ import com.betha.notafacil.model.Estado;
 import com.betha.notafacil.model.ListaServicos;
 
 public class ListaServicoDTO {
-    private Long id;
+    private String id;
     private Integer codigo;
     private String descricao;
     private Double issVariavel;
     private Double issFixo; // anual
     private String item; // 1.01 ou 1.02
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -61,7 +61,7 @@ public class ListaServicoDTO {
 
     public static ListaServicoDTO toDTO(ListaServicos listaServicos){
         ListaServicoDTO dto =  new ListaServicoDTO();
-        dto.setId(listaServicos.getId());
+        dto.setId(listaServicos.getId().toString());
         dto.setCodigo(listaServicos.getCodigo());
         dto.setDescricao(listaServicos.getDescricao());
         dto.setIssFixo(listaServicos.getIssFixo());
@@ -72,7 +72,7 @@ public class ListaServicoDTO {
 
     public static ListaServicos fromDTO(ListaServicoDTO dto){
         ListaServicos entity = new ListaServicos();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setCodigo(dto.getCodigo());
         entity.setDescricao(dto.descricao);
         entity.setIssFixo(dto.getIssFixo());

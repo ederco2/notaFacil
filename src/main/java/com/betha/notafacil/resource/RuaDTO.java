@@ -6,17 +6,17 @@ import com.betha.notafacil.model.Rua;
 import com.betha.notafacil.model.TipoRua;
 
 public class RuaDTO {
-    private Long id;
+    private String id;
     private String nome;
     private TipoRua tipo;
     private  String cep;
     private BairroDTO bairro;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,7 +54,7 @@ public class RuaDTO {
 
     public static RuaDTO toDTO(Rua rua){
         RuaDTO dto = new RuaDTO();
-        dto.setId(rua.getId());
+        dto.setId(rua.getId().toString());
         dto.setNome(rua.getNome());
         dto.setCep(rua.getCep());
         dto.setTipo(rua.getTipo());
@@ -64,7 +64,7 @@ public class RuaDTO {
 
     public static Rua fromDTO(RuaDTO dto) {
         Rua entity = new Rua();
-        entity.setId(dto.getId());
+        entity.setId(Long.getLong(dto.getId()));
         entity.setNome(dto.getNome());
         entity.setCep(dto.getCep());
         entity.setTipo(dto.getTipo());

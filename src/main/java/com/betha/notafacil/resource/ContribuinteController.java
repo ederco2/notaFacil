@@ -2,8 +2,10 @@ package com.betha.notafacil.resource;
 
 import com.betha.notafacil.enterprise.EntityNotFoundException;
 import com.betha.notafacil.model.Contribuinte;
+import com.betha.notafacil.model.Pais;
 import com.betha.notafacil.repository.ContribuinteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,6 +46,16 @@ public class ContribuinteController {
         contribuinteFind.setDocumento(contribuinte.getDocumento());
         contribuinteFind.setTipodoc(contribuinte.getTipodoc());
         return repository.save(contribuinteFind);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable(value = "id") Long contribuinteId) throws EntityNotFoundException {
+        Contribuinte ContribuinteFind = repository.findById(contribuinteId)
+                .orElseThrow(() -> new EntityNotFoundException("Pais não encontrado com ID :: " + contribuinteId));
+
+        repository.delete(ContribuinteFind);
+
+        return ResponseEntity.noContent().build();
     }
 
 }
