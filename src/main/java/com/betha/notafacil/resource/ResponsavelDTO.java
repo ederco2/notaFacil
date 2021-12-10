@@ -5,7 +5,7 @@ import com.betha.notafacil.model.Responsavel;
 import com.betha.notafacil.model.Rua;
 
 public class ResponsavelDTO {
-    private String id;
+    private Long id;
     private String nome;
     private String cpf;
     private String celular;
@@ -52,29 +52,29 @@ public class ResponsavelDTO {
         this.rua = rua;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     public static ResponsavelDTO toDTO(Responsavel responsavel){
         ResponsavelDTO dto =  new ResponsavelDTO();
-        dto.setId(responsavel.getId().toString());
+        dto.setId(responsavel.getId());
+        dto.setRua(RuaDTO.toDTO(responsavel.getRua()));
         dto.setCelular(responsavel.getCelular());
         dto.setCpf(responsavel.getCpf());
         dto.setNome(responsavel.getNome());
         dto.setTelefone(responsavel.getTelefone());
-        dto.setRua(responsavel.getRua() != null ? RuaDTO.toDTO(responsavel.getRua()) : null);
         return dto;
     }
 
     public static Responsavel fromDTO(ResponsavelDTO dto){
         Responsavel entity = new Responsavel();
-        entity.setId(Long.getLong(dto.getId()));
-        //entity.setRua(RuaDTO.fromDTO(dto.getRua()));
+        entity.setId(dto.getId());
+        entity.setRua(RuaDTO.fromDTO(dto.getRua()));
         entity.setCelular(dto.getCelular());
         entity.setCpf(dto.getCpf());
         entity.setNome(dto.getNome());
