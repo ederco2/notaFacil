@@ -75,6 +75,7 @@ public class ContribuinteDTO {
         return dto;
     }
 
+
     public static Contribuinte fromDTO(ContribuinteDTO dto){
         Contribuinte entity = new Contribuinte();
         entity.setId(Long.getLong(dto.getId()));

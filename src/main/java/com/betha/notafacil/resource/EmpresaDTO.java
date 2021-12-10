@@ -104,6 +104,7 @@ public class EmpresaDTO {
         this.id = id;
     }
 
+
     public static EmpresaDTO toDTO(Empresa empresa) {
         EmpresaDTO dto = new EmpresaDTO();
         dto.setId(empresa.getId().toString());

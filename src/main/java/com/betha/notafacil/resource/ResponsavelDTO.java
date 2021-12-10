@@ -60,6 +60,7 @@ public class ResponsavelDTO {
         this.id = id;
     }
 
+
     public static ResponsavelDTO toDTO(Responsavel responsavel){
         ResponsavelDTO dto =  new ResponsavelDTO();
         dto.setId(responsavel.getId());

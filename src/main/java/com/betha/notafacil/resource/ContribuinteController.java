@@ -48,6 +48,7 @@ public class ContribuinteController {
         return repository.save(contribuinteFind);
     }
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable(value = "id") Long contribuinteId) throws EntityNotFoundException {
         Contribuinte ContribuinteFind = repository.findById(contribuinteId)

@@ -18,6 +18,7 @@ public class ListaServicos extends AbstractEntity {
     @Column(name = "item")
     private String item; // 1.01 ou 1.02
 
+
     public String getDescricao() {
         return descricao;
     }

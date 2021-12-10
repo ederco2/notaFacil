@@ -88,6 +88,7 @@ public class EmissaoNotaDTO {
         this.empresa = empresa;
     }
 
+
     public static EmissaoNotaDTO toDTO(EmissaoNotas emissaoNotas) {
         EmissaoNotaDTO dto = new EmissaoNotaDTO();
         dto.setId(emissaoNotas.getId().toString());

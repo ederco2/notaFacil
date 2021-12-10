@@ -26,6 +26,7 @@ public class EmpresaController extends AbstractResource {
         return repository.findAll().stream().map(p -> EmpresaDTO.toDTO(p)).collect(Collectors.toList());
     }
 
+
 /*
     @GetMapping
     public List<EmpresaDTO> getEmpresas(@QuerydslPredicate(root = Empresa.class) Predicate predicate) {

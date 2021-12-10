@@ -26,6 +26,7 @@ public class EmissaoNotas  extends AbstractEntity {
     @JoinColumn(name="i_lista_servicos",referencedColumnName = "ID")
     private ListaServicos listaServicos;
 
+
     @NotNull
     @ManyToOne
     @JoinColumn(name="i_empresas",referencedColumnName = "ID")

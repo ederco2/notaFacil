@@ -17,6 +17,7 @@ public class ListaServicoController {
     @Autowired
     private ListaServicoRepository repository;
 
+
     @GetMapping
     public List<ListaServicoDTO> getListaServicos(){
         return repository.findAll().stream().map(l-> ListaServicoDTO.toDTO(l)).collect(Collectors.toList());

@@ -19,6 +19,7 @@ public class ListaServicoDTO {
         this.id = id;
     }
 
+
     public String getDescricao() {
         return descricao;
     }

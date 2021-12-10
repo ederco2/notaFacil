@@ -17,6 +17,7 @@ public class ResponsavelController {
     @Autowired
     ResponsavelRepository repository;
 
+
     @GetMapping
     public List<ResponsavelDTO> getResponsavel(){
         return repository.findAll().stream().map(l-> ResponsavelDTO.toDTO(l)).collect(Collectors.toList());

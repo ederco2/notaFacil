@@ -25,6 +25,7 @@ public class Empresa extends AbstractEntity {
     @Column(name="situacao")
     private String situacao; // ENUM ultima situacao: (B,S,C,P,A) // Baixado, Suspenso, Cancelado, Provisorio, A- Em Atividade
 
+
     @NotNull
     @ManyToOne
     @JoinColumn(name="i_ruas",referencedColumnName = "ID")
