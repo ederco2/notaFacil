@@ -17,7 +17,7 @@ public class Empresa extends AbstractEntity {
     @Column(name="cnpj")
     private String cnpj;
     @Column(name="porteEmpresa")
-    private Integer porteEmpresa; // ENUM
+    private PorteEmpresa porteEmpresa; // ENUM
     @Column(name="optante")
     private String optante; //ENUM
     @Column(name="CEP")
@@ -66,13 +66,6 @@ public class Empresa extends AbstractEntity {
         this.cnpj = cnpj;
     }
 
-    public Integer getPorteEmpresa() {
-        return porteEmpresa;
-    }
-
-    public void setPorteEmpresa(Integer porteEmpresa) {
-        this.porteEmpresa = porteEmpresa;
-    }
 
     public String getOptante() {
         return optante;
@@ -120,5 +113,13 @@ public class Empresa extends AbstractEntity {
 
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
+    }
+
+    public PorteEmpresa getPorteEmpresa() {
+        return porteEmpresa;
+    }
+
+    public void setPorteEmpresa(PorteEmpresa porteEmpresa) {
+        this.porteEmpresa = porteEmpresa;
     }
 }

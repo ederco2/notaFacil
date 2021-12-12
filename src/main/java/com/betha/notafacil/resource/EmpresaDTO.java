@@ -1,14 +1,15 @@
 package com.betha.notafacil.resource;
 
 import com.betha.notafacil.model.Empresa;
+import com.betha.notafacil.model.PorteEmpresa;
 
 public class EmpresaDTO {
     private String id;
     private String nomeEmpresa;
     private String razaoSocial;
     private String cnpj;
-    private Integer porteEmpresa; // ENUM
-    private String optante; //ENUM
+    private PorteEmpresa porteEmpresa; // ENUM
+    private String optante;
     private RuaDTO rua; //Classe
     private String CEP;
     private ResponsavelDTO responsavel; //Classe
@@ -39,13 +40,6 @@ public class EmpresaDTO {
         this.cnpj = cnpj;
     }
 
-    public Integer getPorteEmpresa() {
-        return porteEmpresa;
-    }
-
-    public void setPorteEmpresa(Integer porteEmpresa) {
-        this.porteEmpresa = porteEmpresa;
-    }
 
     public String getOptante() {
         return optante;
@@ -95,6 +89,13 @@ public class EmpresaDTO {
         this.atividade = atividade;
     }
 
+    public PorteEmpresa getPorteEmpresa() {
+        return porteEmpresa;
+    }
+
+    public void setPorteEmpresa(PorteEmpresa porteEmpresa) {
+        this.porteEmpresa = porteEmpresa;
+    }
 
     public String getId() {
         return id;
